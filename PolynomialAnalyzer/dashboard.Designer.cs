@@ -84,7 +84,9 @@
             // 
             // txt_derivative
             // 
+            this.txt_derivative.BackColor = System.Drawing.Color.Black;
             this.txt_derivative.Font = new System.Drawing.Font("Adobe Heiti Std R", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_derivative.ForeColor = System.Drawing.Color.White;
             this.txt_derivative.Location = new System.Drawing.Point(220, 73);
             this.txt_derivative.Multiline = true;
             this.txt_derivative.Name = "txt_derivative";
