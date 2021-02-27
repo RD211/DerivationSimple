@@ -1,6 +1,7 @@
 ﻿using PolynomialAnalyzer.Expression_Tree.Functions;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -97,5 +98,26 @@ namespace PolynomialAnalyzer.Expression_Tree.Operations
         public string GetPostFixNotation() => $"{LeftOperand.GetInFixNotation()} {RightOperand.GetInFixNotation()} ^ ";
         public string GetPreFixNotation() => $"^ {LeftOperand.GetInFixNotation()} {RightOperand.GetInFixNotation()} ";
         public bool ContainsVariable() => LeftOperand.ContainsVariable() || RightOperand.ContainsVariable();
+
+        public Bitmap Render()
+        {
+            var leftBmp = this.LeftOperand.Render();
+            var tempRightBmp = this.RightOperand.Render();
+            var rightBmp = new Bitmap(tempRightBmp, new Size((int)(tempRightBmp.Width / 1.5), (int)(tempRightBmp.Height / 1.5)));
+
+            var bmp = new Bitmap(leftBmp.Width+rightBmp.Width, leftBmp.Height + rightBmp.Height);
+
+
+            Graphics g = Graphics.FromImage(bmp);
+            g.DrawImage(leftBmp, new Point(0, bmp.Height - leftBmp.Height));
+            g.DrawImage(rightBmp, new Point(leftBmp.Width, 0));
+
+            g.Dispose();
+
+            leftBmp.Dispose();
+            tempRightBmp.Dispose();
+            rightBmp.Dispose();
+            return bmp;
+        }
     }
 }

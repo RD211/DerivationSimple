@@ -54,6 +54,7 @@
     <Compile Include="dashboard.Designer.cs">
       <DependentUpon>dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Drawer\DrawingHelpers.cs" />
     <Compile Include="Drawer\GraphDrawer.cs" />
     <Compile Include="Expression Tree\Constant.cs" />
     <Compile Include="Expression Tree\Functions\FunctionArcCos.cs" />

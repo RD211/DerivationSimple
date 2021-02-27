@@ -33,7 +33,11 @@
             this.lbl_function = new System.Windows.Forms.Label();
             this.lbl_derivative = new System.Windows.Forms.Label();
             this.txt_derivative = new System.Windows.Forms.TextBox();
+            this.pbox_standard = new System.Windows.Forms.PictureBox();
+            this.pbox_derivative = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_function)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_standard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_derivative)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_input
@@ -42,7 +46,7 @@
             this.txt_input.Location = new System.Drawing.Point(220, 12);
             this.txt_input.Multiline = true;
             this.txt_input.Name = "txt_input";
-            this.txt_input.Size = new System.Drawing.Size(727, 55);
+            this.txt_input.Size = new System.Drawing.Size(365, 55);
             this.txt_input.TabIndex = 1;
             this.txt_input.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt_input.TextChanged += new System.EventHandler(this.txt_input_TextChanged);
@@ -95,12 +99,35 @@
             this.txt_derivative.TabIndex = 9;
             this.txt_derivative.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // pbox_standard
+            // 
+            this.pbox_standard.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbox_standard.Location = new System.Drawing.Point(591, 12);
+            this.pbox_standard.Name = "pbox_standard";
+            this.pbox_standard.Size = new System.Drawing.Size(356, 55);
+            this.pbox_standard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbox_standard.TabIndex = 11;
+            this.pbox_standard.TabStop = false;
+            this.pbox_standard.Click += new System.EventHandler(this.pbox_standard_Click);
+            // 
+            // pbox_derivative
+            // 
+            this.pbox_derivative.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbox_derivative.Location = new System.Drawing.Point(220, 73);
+            this.pbox_derivative.Name = "pbox_derivative";
+            this.pbox_derivative.Size = new System.Drawing.Size(726, 55);
+            this.pbox_derivative.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbox_derivative.TabIndex = 12;
+            this.pbox_derivative.TabStop = false;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(959, 728);
+            this.ClientSize = new System.Drawing.Size(958, 728);
+            this.Controls.Add(this.pbox_derivative);
+            this.Controls.Add(this.pbox_standard);
             this.Controls.Add(this.lbl_derivative);
             this.Controls.Add(this.txt_derivative);
             this.Controls.Add(this.lbl_function);
@@ -112,6 +139,8 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Dashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbox_function)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_standard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_derivative)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,6 +152,8 @@
         private System.Windows.Forms.Label lbl_function;
         private System.Windows.Forms.Label lbl_derivative;
         private System.Windows.Forms.TextBox txt_derivative;
+        private System.Windows.Forms.PictureBox pbox_standard;
+        private System.Windows.Forms.PictureBox pbox_derivative;
     }
 }
 

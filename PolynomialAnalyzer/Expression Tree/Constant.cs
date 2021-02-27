@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DerivationSimple.Drawer;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,5 +32,18 @@ namespace PolynomialAnalyzer.Expression_Tree
         public string GetPostFixNotation()=> value.ToString();
 
         public string GetPreFixNotation()=> value.ToString();
+
+        public Bitmap Render()
+        {
+            var txt = GetInFixNotation();
+            var size = DrawingHelpers.GetSizeOfText(txt, DrawingHelpers.globalFont);
+            Bitmap bmp = new Bitmap((int)size.Width, (int)size.Height);
+            Graphics g = Graphics.FromImage(bmp);
+            var brush = new SolidBrush(DrawingHelpers.globalColor);
+            g.DrawString(txt, DrawingHelpers.globalFont, brush, new PointF(0, 0));
+            brush.Dispose();
+            g.Dispose();
+            return bmp;
+        }
     }
 }

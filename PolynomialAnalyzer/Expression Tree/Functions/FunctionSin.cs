@@ -1,6 +1,8 @@
-﻿using PolynomialAnalyzer.Expression_Tree.Operations;
+﻿using DerivationSimple.Drawer;
+using PolynomialAnalyzer.Expression_Tree.Operations;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,5 +43,7 @@ namespace PolynomialAnalyzer.Expression_Tree.Functions
         {
             return Math.Sin(Parameter.Evaluate(input));
         }
+        public Bitmap Render() => DrawingHelpers.DrawSingularFunction(this.Parameter.Render(), "sin");
+
     }
 }

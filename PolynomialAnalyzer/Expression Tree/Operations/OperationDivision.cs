@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DerivationSimple.Drawer;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -68,5 +70,27 @@ namespace PolynomialAnalyzer.Expression_Tree.Operations
 
         public IExpressionNode DeepCopy() => new OperationDivision(LeftOperand.DeepCopy(), RightOperand.DeepCopy());
         public bool ContainsVariable() => LeftOperand.ContainsVariable() || RightOperand.ContainsVariable();
+
+        public Bitmap Render()
+        {
+            var leftBmp = this.LeftOperand.Render();
+            var rightBmp = this.RightOperand.Render();
+
+
+            var pen = new Pen(DrawingHelpers.globalColor);
+
+            var bmp = new Bitmap(Math.Max(leftBmp.Width, rightBmp.Width) + DrawingHelpers.Padding, leftBmp.Height + rightBmp.Height + DrawingHelpers.Padding) ;
+            Graphics g = Graphics.FromImage(bmp);
+
+            g.DrawImage(leftBmp, new Point((bmp.Width-leftBmp.Width)/2, 0));
+            g.DrawLine(pen, 0, leftBmp.Height+(int)(DrawingHelpers.Padding/2), bmp.Width, leftBmp.Height + (int)(DrawingHelpers.Padding / 2));
+            g.DrawImage(rightBmp, new Point((bmp.Width - rightBmp.Width) / 2, leftBmp.Height + DrawingHelpers.Padding));
+
+            g.Dispose();
+            leftBmp.Dispose();
+            rightBmp.Dispose();
+            pen.Dispose();
+            return bmp;
+        }
     }
 }

@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using DerivationSimple.Drawer;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace PolynomialAnalyzer.Expression_Tree.Operations
 {
@@ -57,5 +60,8 @@ namespace PolynomialAnalyzer.Expression_Tree.Operations
         public string GetPreFixNotation()=> $"* {LeftOperand.GetPreFixNotation()} {RightOperand.GetPreFixNotation()} ";
         public string GetInFixNotation()=> $"({LeftOperand.GetInFixNotation()} * {RightOperand.GetInFixNotation()}) ";
         public bool ContainsVariable() => LeftOperand.ContainsVariable() || RightOperand.ContainsVariable();
+
+        public Bitmap Render() => DrawingHelpers.DrawSimpleOperation(LeftOperand.Render(), RightOperand.Render(), "*");
+
     }
 }

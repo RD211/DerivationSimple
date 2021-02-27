@@ -1,6 +1,8 @@
-﻿using PolynomialAnalyzer.Expression_Tree.Operations;
+﻿using DerivationSimple.Drawer;
+using PolynomialAnalyzer.Expression_Tree.Operations;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace PolynomialAnalyzer.Expression_Tree.Functions
 {
@@ -55,5 +57,7 @@ namespace PolynomialAnalyzer.Expression_Tree.Functions
         {
             return $"ln {Parameter.GetInFixNotation()} ";
         }
+        public Bitmap Render() => DrawingHelpers.DrawSingularFunction(this.Parameter.Render(), "ln");
+
     }
 }

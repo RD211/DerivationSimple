@@ -2,6 +2,7 @@
 using PolynomialAnalyzer.Parser;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 
 namespace PolynomialAnalyzer.Expression_Tree
@@ -78,6 +79,10 @@ namespace PolynomialAnalyzer.Expression_Tree
         public double Evaluate(Dictionary<string, double> input)
         {
             return root.Evaluate(input);
+        }
+        public Bitmap Render()
+        {
+            return root.Render();
         }
     }
 }

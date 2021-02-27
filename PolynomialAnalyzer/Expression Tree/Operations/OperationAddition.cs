@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DerivationSimple.Drawer;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,5 +56,7 @@ namespace PolynomialAnalyzer.Expression_Tree
 
         public IExpressionNode DeepCopy() => new OperationAdd(LeftOperand.DeepCopy(), RightOperand.DeepCopy());
         public bool ContainsVariable() => LeftOperand.ContainsVariable() || RightOperand.ContainsVariable();
+
+        public Bitmap Render() => DrawingHelpers.DrawSimpleOperation(LeftOperand.Render(), RightOperand.Render(), "+");
     }
 }

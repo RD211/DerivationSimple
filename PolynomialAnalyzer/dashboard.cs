@@ -36,6 +36,9 @@ namespace PolynomialAnalyzer
                 ExpressionTree tree = new ExpressionTree(txt_input.Text);
                 txt_derivative.Text = tree.GetDerivative().GetInFixNotation();
                 DisplayGraphic();
+                this.pbox_standard.Image = tree.Render();
+                this.pbox_derivative.Image = tree.GetDerivative().Render();
+
             }
             catch {
             }
@@ -64,6 +67,17 @@ namespace PolynomialAnalyzer
         private void lbl_function_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            ExpressionTree tree = new ExpressionTree(txt_input.Text);
+            txt_derivative.Text = tree.GetDerivative().GetInFixNotation();
+        }
+
+        private void pbox_standard_Click(object sender, EventArgs e)
+        {
+            this.txt_input.Focus();
         }
 
         private void Pbox_function_MouseWheel(object sender, MouseEventArgs e)

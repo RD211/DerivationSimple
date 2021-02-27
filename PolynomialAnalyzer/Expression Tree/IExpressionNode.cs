@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
 
 namespace PolynomialAnalyzer.Expression_Tree
 {
@@ -9,12 +10,10 @@ namespace PolynomialAnalyzer.Expression_Tree
         IExpressionNode Derivate();
         string ToString();
         IExpressionNode DeepCopy();
-
         string GetPostFixNotation();
-
         string GetPreFixNotation();
-
         string GetInFixNotation();
         bool ContainsVariable();
+        Bitmap Render();
     }
 }
